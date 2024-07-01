@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "tableId": 1,
+    "locationId": 1
+  },
+  {
+    "id": 2,
+    "tableId": 2,
+    "locationId": 1
+  },
+  {
+    "id": 3,
+    "tableId": 6,
+    "locationId": 2
+  },
+  {
+    "id": 4,
+    "tableId": 11,
+    "locationId": 3
+  }
+]

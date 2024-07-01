@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Location {
+  id       Int     @id @default(autoincrement())
+  name     String
+  email    String  @unique
+  password String
+  Item     Item[]
+  Order    Order[]
+  Table    Table[]
+}
+
+model Item {
+  id          Int           @id @default(autoincrement())
+  title       String
+  description String
+  frequent    Boolean
+  categoryId  Int
+  category    Category      @relation(fields: [categoryId], references: [id])
+  price       Float
+  locationId  Int
+  location    Location      @relation(fields: [locationId], references: [id])
+  Order_Items Order_Items[]
+}
+
+model Order {
+  id          Int           @id @default(autoincrement())
+  tableId     Int
+  table       Table         @relation(fields: [tableId], references: [id])
+  location    Location      @relation(fields: [locationId], references: [id])
+  locationId  Int
+  Order_Items Order_Items[]
+}
+
+model Order_Items {
+  id      Int   @id @default(autoincrement())
+  orderId Int
+  itemId  Int
+  order   Order @relation(fields: [orderId], references: [id])
+  item    Item  @relation(fields: [itemId], references: [id])
+
+  @@unique([orderId, itemId])
+}
+
+model Category {
+  id   Int    @id @default(autoincrement())
+  name String
+  Item Item[]
+}
+
+model Table {
+  id         Int      @id @default(autoincrement())
+  name       String
+  locationId Int
+  location   Location @relation(fields: [locationId], references: [id])
+  Order      Order[]
+}

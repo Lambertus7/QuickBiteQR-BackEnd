@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "orderId": 1,
+    "itemId": 1
+  },
+  {
+    "id": 2,
+    "orderId": 1,
+    "itemId": 2
+  },
+  {
+    "id": 3,
+    "orderId": 2,
+    "itemId": 1
+  },
+  {
+    "id": 4,
+    "orderId": 2,
+    "itemId": 3
+  },
+  {
+    "id": 5,
+    "orderId": 3,
+    "itemId": 3
+  },
+  {
+    "id": 6,
+    "orderId": 3,
+    "itemId": 4
+  },
+  {
+    "id": 7,
+    "orderId": 4,
+    "itemId": 4
+  },
+  {
+    "id": 8,
+    "orderId": 4,
+    "itemId": 5
+  }
+]

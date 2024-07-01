@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Table 1",
+    "locationId": 1
+  },
+  {
+    "name": "Table 2",
+    "locationId": 1
+  },
+  {
+    "name": "Table 3",
+    "locationId": 1
+  },
+  {
+    "name": "Table 4",
+    "locationId": 1
+  },
+  {
+    "name": "Table 5",
+    "locationId": 1
+  },
+  {
+    "name": "Table 6",
+    "locationId": 2
+  },
+  {
+    "name": "Table 7",
+    "locationId": 2
+  },
+  {
+    "name": "Table 8",
+    "locationId": 2
+  },
+  {
+    "name": "Table 9",
+    "locationId": 2
+  },
+  {
+    "name": "Table 10",
+    "locationId": 2
+  },
+  {
+    "name": "Table 11",
+    "locationId": 3
+  },
+  {
+    "name": "Table 12",
+    "locationId": 3
+  },
+  {
+    "name": "Table 13",
+    "locationId": 3
+  },
+  {
+    "name": "Table 14",
+    "locationId": 3
+  },
+  {
+    "name": "Table 15",
+    "locationId": 3
+  }
+]

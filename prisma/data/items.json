@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "title": "Stuffed Mushrooms",
+    "description": "Savory mushrooms stuffed with cream cheese and herbs.",
+    "frequent": true,
+    "categoryId": 1,
+    "price": 10.99,
+    "locationId": 1
+  },
+  {
+    "id": 2,
+    "title": "Caprese Salad",
+    "description": "Fresh tomatoes, mozzarella, and basil drizzled with balsamic glaze.",
+    "frequent": false,
+    "categoryId": 1,
+    "price": 12.99,
+    "locationId": 2
+  },
+  {
+    "id": 3,
+    "title": "Grilled Salmon",
+    "description": "Tender grilled salmon fillet served with lemon butter sauce.",
+    "frequent": true,
+    "categoryId": 2,
+    "price": 8.99,
+    "locationId": 2
+  },
+  {
+    "id": 4,
+    "title": "Pasta Carbonara",
+    "description": "Spaghetti tossed with pancetta, egg yolks, and Parmesan cheese.",
+    "frequent": false,
+    "categoryId": 2,
+    "price": 15.99,
+    "locationId": 3
+  },
+  {
+    "id": 5,
+    "title": "Chocolate Lava Cake",
+    "description": "Warm chocolate cake with a gooey chocolate center, served with vanilla ice cream.",
+    "frequent": true,
+    "categoryId": 3,
+    "price": 9.99,
+    "locationId": 3
+  },
+  {
+    "id": 6,
+    "title": "Tiramisu",
+    "description": "Classic Italian dessert made with layers of coffee-soaked ladyfingers and mascarpone cheese.",
+    "frequent": false,
+    "categoryId": 3,
+    "price": 5.99,
+    "locationId": 2
+  },
+  {
+    "id": 7,
+    "title": "Key Lime Pie",
+    "description": "Refreshing pie made with tangy key lime juice in a graham cracker crust.",
+    "frequent": false,
+    "categoryId": 3,
+    "price": 6.99,
+    "locationId": 1
+  },
+  {
+    "id": 8,
+    "title": "BLT Sandwich",
+    "description": "crispy bacon, fresh lettuce, and juicy tomato on toasted bread—a perfect blend of savory and fresh flavors.",
+    "frequent": true,
+    "categoryId": 2,
+    "price": 9.99,
+    "locationId": 1
+  },
+  {
+    "id": 9,
+    "title": "T-bone steak with mashed potatoes",
+    "description": "Savor a grilled T-bone steak paired with creamy mashed potatoes—a deliciously satisfying meal of tender, smoky flavors and comforting textures.",
+    "frequent": true,
+    "categoryId": 2,
+    "price": 49.99,
+    "locationId": 2
+  },
+  {
+    "id": 10,
+    "title": "Tomato soup",
+    "description": "Savor a rich and velvety tomato soup, bursting with tangy sweetness and subtle herb flavors.",
+    "frequent": true,
+    "categoryId": 1,
+    "price": 7.99,
+    "locationId": 3
+  }
+]

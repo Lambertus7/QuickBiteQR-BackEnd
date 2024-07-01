@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Fork & Fable",
+    "email": "forkandfable@gmail.com",
+    "password": "password123"
+  },
+  {
+    "id": 2,
+    "name": "The Hungry Hippo",
+    "email": "thehungryhippo@gmail.com",
+    "password": "password123"
+  },
+  {
+    "id": 3,
+    "name": "Bistro Bliss",
+    "email": "bistrobliss@yahoo.com",
+    "password": "password123"
+  }
+]
