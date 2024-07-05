@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import { JwtPayload } from "jsonwebtoken";
-const secret = "apple-pie"; // This can be any random string, longer is better (safer)
+const secret = process.env.SECRET || "SPARTAN172MINDMINGLE"; // This can be any random string, longer is better (safer)
 
 interface TokenInfo extends JwtPayload {
   userId: number;
