@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 const prisma = new PrismaClient();
 
-const port = process.env.PORT || 3001;
+const port = 3001;
 
 app.use(json());
 app.use(cors());
