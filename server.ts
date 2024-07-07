@@ -131,39 +131,57 @@ app.get("/locations/:id/items", async (req, res) => {
 // });
 
 //---Dashboard Endpoint---//
-app.get("/my-tables", AuthMiddleware, async (req: AuthRequest, res) => {
-  if (!req.userId) {
-    res.status(500).send({ message: "Login to see your dashboard" });
-  }
-  const myTables = await prisma.order.findMany({
-    where: { locationId: req.userId },
-  });
-  res.send(myTables);
-});
+// app.get("/my-tables", AuthMiddleware, async (req: AuthRequest, res) => {
+//   if (!req.userId) {
+//     res.status(500).send({ message: "Login to see your dashboard" });
+//   }
+//   const myTables = await prisma.order.findMany({
+//     where: { locationId: req.userId },
+//   });
+//   res.send(myTables);
+// });
 
 //---Table Endpoint---//
 
-// app.post("locations/:id/table/:id", async (req, res) => {
-//   const bodyFromRequest = req.body;
+const orderPostValidator = z.object({
+  tableId: z.number().int().positive(),
+  itemIds: z.array(z.number().int().positive()),
+});
 
-//   try {
-//     const listOfOrders = await prisma.table.findMany({
-//       data: {
-//         locationId: bodyFromRequest.locationId,
-//         tableId: bodyFromRequest.tableId,
-//       },
-//     });
-//     res.status(201).send(listOfOrders);
-//   } catch (error) {
-//     console.log(error);
-//     res
-//       .status(500)
-//       .send({ message: "Something went poorly, try again later." });
-//   }
-//   {
-//     res.status(400).send({ Message: "Bad request!" });
-//   }
-// });
+app.post("/orders", async (req, res) => {
+  const bodyFromRequest = req.body;
+
+  const validated = orderPostValidator.safeParse(bodyFromRequest);
+  if (!validated.success) {
+    res.status(400).send({
+      message: "Order is not valid",
+      errors: validated.error.flatten(),
+    });
+    return;
+  }
+  // DARLING: You need to check if the items actually belong to this table's location
+  try {
+    const newOrder = await prisma.order.create({
+      data: {
+        tableId: validated.data.tableId,
+        order_items: {
+          create: validated.data.itemIds.map((itemId) => {
+            return { itemId: itemId };
+          }),
+        },
+      },
+    });
+    res.status(201).send(newOrder);
+  } catch (error) {
+    console.log(error);
+    res
+      .status(500)
+      .send({ message: "Something went poorly, try again later." });
+  }
+  {
+    res.status(400).send({ Message: "Bad request!" });
+  }
+});
 
 //---Order Endpoint---//
 // app.post("/order", async (req, res) => {

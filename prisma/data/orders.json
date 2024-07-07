@@ -1,22 +1,18 @@
 [
   {
     "id": 1,
-    "tableId": 1,
-    "locationId": 1
+    "tableId": 1
   },
   {
     "id": 2,
-    "tableId": 2,
-    "locationId": 1
+    "tableId": 2
   },
   {
     "id": 3,
-    "tableId": 6,
-    "locationId": 2
+    "tableId": 6
   },
   {
     "id": 4,
-    "tableId": 11,
-    "locationId": 3
+    "tableId": 11
   }
 ]
