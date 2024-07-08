@@ -94,6 +94,47 @@ app.post("/login", async (req: AuthRequest, res) => {
     });
   }
 });
+//---Table Endpoints--//
+
+app.get("/tables/:id", async (req, res) => {
+  try {
+    const tableById = await prisma.table.findUnique({
+      where: { id: Number(req.params.id) },
+      select: {
+        id: true,
+        location: {
+          select: {
+            id: true,
+            name: true,
+            Item: {
+              select: {
+                id: true,
+                title: true,
+                description: true,
+                frequent: true,
+                price: true,
+                category: {
+                  select: {
+                    id: true,
+                    name: true,
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    });
+    if (!tableById) {
+      return res.status(404).send();
+    } else {
+      return res.send(tableById);
+    }
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send({ message: "Something went wrong" });
+  }
+});
 
 //---Items Endpoint---//
 app.get("/locations/:id/items", async (req, res) => {
@@ -151,6 +192,8 @@ const orderPostValidator = z.object({
 app.post("/orders", async (req, res) => {
   const bodyFromRequest = req.body;
 
+  console.log(bodyFromRequest);
+
   const validated = orderPostValidator.safeParse(bodyFromRequest);
   if (!validated.success) {
     res.status(400).send({
@@ -171,15 +214,12 @@ app.post("/orders", async (req, res) => {
         },
       },
     });
-    res.status(201).send(newOrder);
+    return res.status(201).send(newOrder);
   } catch (error) {
     console.log(error);
-    res
+    return res
       .status(500)
       .send({ message: "Something went poorly, try again later." });
-  }
-  {
-    res.status(400).send({ Message: "Bad request!" });
   }
 });
 
