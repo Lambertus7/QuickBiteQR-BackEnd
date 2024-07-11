@@ -33,7 +33,7 @@ const registryValidator = z
     email: z.string().nonempty({ message: "Field cannot be empty!" }).email(),
     password: z
       .string()
-      .min(10, {
+      .min(8, {
         message: "Password must have at least have 10 character.",
       })
       .nonempty({ message: "Field cannot be empty!" }),
