@@ -178,6 +178,7 @@ app.get("/tables", AuthMiddleware, async (req: AuthRequest, res) => {
       },
     },
   });
+  //Mapping to make the endpoint look less nested in HTTPie:
   const cleanTables = myTables.map((table) => {
     return {
       ...table,
