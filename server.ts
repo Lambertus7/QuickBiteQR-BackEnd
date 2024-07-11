@@ -94,8 +94,8 @@ app.post("/login", async (req: AuthRequest, res) => {
     });
   }
 });
-//---Table Endpoints--//
 
+//---Table Endpoints--//
 app.get("/tables/:id", async (req, res) => {
   try {
     const tableById = await prisma.table.findUnique({
