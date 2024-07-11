@@ -150,6 +150,47 @@ app.get("/locations/:id/items", async (req, res) => {
   res.send(allItems);
 });
 
+app.get("/tables", AuthMiddleware, async (req: AuthRequest, res) => {
+  const locationId = req.userId;
+  if (!req.userId) {
+    return res.status(500).send({ message: "Something went wrong!" });
+  }
+
+  const myTables = await prisma.table.findMany({
+    where: {
+      locationId: locationId,
+    },
+    select: {
+      id: true,
+      name: true,
+      Order: {
+        select: {
+          order_items: {
+            select: {
+              item: {
+                select: {
+                  title: true,
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  });
+  const cleanTables = myTables.map((table) => {
+    return {
+      ...table,
+      Order: table.Order.map((order) => {
+        return [
+          ...order.order_items.map((order_item) => order_item.item.title),
+        ];
+      }),
+    };
+  });
+  res.send(cleanTables);
+});
+
 // app.get("/locations/:id/items/:id", async (req, res) => {
 //   const itemId = Number(req.params.id);
 //   if (isNaN(itemId)) {
